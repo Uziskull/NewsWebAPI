@@ -5,8 +5,8 @@ using NewsWebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<NewsWebAPIContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("NewsWebAPIContext")));
+builder.Services.AddDbContext<NewsWebAPIContext>(options => 
+        options.UseInMemoryDatabase(builder.Configuration.GetConnectionString("NewsWebAPIContext")));
 
 // Add services to the container.
 builder.Services.AddTransient<NewsService>();
