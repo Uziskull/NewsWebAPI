@@ -15,6 +15,6 @@ namespace NewsWebAPI.Data
         {
         }
 
-        public DbSet<NewsWebAPI.Models.NewsArticle> NewsArticle { get; set; }
+        public DbSet<NewsWebAPI.Models.NewsArticleDAO> NewsArticle { get; set; }
     }
 }

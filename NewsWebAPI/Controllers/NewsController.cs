@@ -20,9 +20,10 @@ namespace NewsWebAPI.Controllers
         }
 
         [HttpGet(Name = "best20")]
-        public IEnumerable<NewsArticle> Get()
+        public async Task<IEnumerable<NewsArticleDTO>> GetAsync()
         {
-            return _newsService.fetchBest(20);
+            _logger.LogDebug("NewsController Get Best20");
+            return await _newsService.fetchBestAsync(20);
         }
     }
 }
