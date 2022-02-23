@@ -5,7 +5,7 @@ using NewsWebAPI.Services;
 namespace NewsWebAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("")]
     public class NewsController : ControllerBase
     {
 
@@ -19,7 +19,7 @@ namespace NewsWebAPI.Controllers
             _newsService = newsService;
         }
 
-        [HttpGet(Name = "best20")]
+        [HttpGet("best20")]
         public async Task<IEnumerable<NewsArticleDTO>> GetBest20Async()
         {
             _logger.LogDebug("NewsController GetBest20");

@@ -52,10 +52,10 @@ namespace NewsWebAPI.Services
             {
                 _context.NewsArticle.AddRange(storiesToAdd);
 
-                var storyCount = _context.NewsArticle.Count();
+                int storyCount = _context.NewsArticle.Count();
                 if (storyCount > _config.GetValue<int>("NewsAPI:Database:StoreLimit"))
                 {
-                    var storiesToRemove = _context.NewsArticle.TakeLast(storyCount - _config.GetValue<int>("NewsAPI:Database:StoreMinimum"));
+                    IEnumerable<NewsArticleDAO> storiesToRemove = _context.NewsArticle.TakeLast(storyCount - _config.GetValue<int>("NewsAPI:Database:StoreMinimum"));
                     _context.NewsArticle.RemoveRange(storiesToRemove);
                 }
 
